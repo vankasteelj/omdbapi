@@ -39,6 +39,18 @@
             }
             return url.join('&');
         },
+        format: function (obj) {
+            if (typeof obj === 'object') {
+                var newObj = {};
+                for (var i in obj) {
+                    newObj[i.toLowerCase()] = util.format(obj[i]);
+                }
+                return newObj;
+            } else if (typeof obj === 'string' && obj === 'N/A') {
+                obj = null;
+            }
+            return obj;
+        },
         error: function (opts, type) {
             if (type === 'search' && !opts.search) {
                 throw new Error('You need to pass a search query');
@@ -58,25 +70,24 @@
                 for (var i in data) {
                     res[i] = {};
                     for (var j in data[i]) {
-                        res[i][j.toLowerCase()] = data[i][j] !== 'N/A' ? data[i][j] : null;
+                        res[i][j] = data[i][j];
                     }
                 }
-                return res;
+                return util.format(res);
             },
             get: function (response) {
                 var data = response.body;
                 var res = {};
                 for (var i in data) {
-                    var term = i.toLowerCase();
-                    if (['actors', 'genre', 'writer', 'director'].indexOf(term) !== -1) {
-                        res[term] = data[i].split(', ');
-                    } else if (term === 'response') {
+                    if (['Actors', 'Genre', 'Writer', 'Director'].indexOf(i) !== -1) {
+                        res[i] = data[i].split(', ');
+                    } else if (i === 'Response') {
                         // do nothing
                     } else {
-                        res[term] = data[i];
+                        res[i] = data[i];
                     }
                 }
-                return res;
+                return util.format(res);
             }
         },
         get: function (opts, type, count) {
