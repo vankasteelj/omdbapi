@@ -11,7 +11,9 @@
                 type: 'type',
                 year: 'y',
                 plot: 'plot',
-                tomatoes: 'tomatoes'
+                tomatoes: 'tomatoes',
+                season: 'Season',
+                episode: 'Episode'
             },
             search: {
                 search: 's',
