@@ -17,13 +17,23 @@ var omdb = require('omdbapi');
 #### Example usage
 ```js
 omdb.search({
-    search: 'lord of the ring'
+    search: 'game of thrones',  // required
+    type: 'series',             // optionnal  ['series', 'episode', 'movie']
+    year: '2011',               // optionnal
+    page: '1'                   // optionnal (1 to 100)
 }).then(function (res) {
     console.log('got response:', res);
 }).catch(console.error.bind(console));
 
 omdb.get({
-    id: 'tt0145487'
+    id: 'tt0944947',            // optionnal (requires imdbid or title)
+    title: 'Game of Thrones',   // optionnal (requires imdbid or title)
+    season: 1,                  // optionnal
+    episode: 1,                 // optionnal
+    type: 'series',             // optionnal ['series', 'episode', 'movie']
+    plot: 'full',               // optionnal (defaults to 'short')
+    tomatoes: true,             // optionnal (get rotten tomatoes ratings)
+    year: '2011'                // optionnal
 }).then(function (res) {
     console.log('got response:', res);
 }).catch(console.error.bind(console));
