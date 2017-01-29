@@ -1,0 +1,23 @@
+{
+    "url": "http://www.omdbapi.com/?",
+    "map": {
+        "get": {
+            "id": "i",
+            "title": "t",
+            "type": "type",
+            "year": "y",
+            "plot": "plot",
+            "tomatoes": "tomatoes",
+            "season": "Season",
+            "episode": "Episode"
+        },
+        "search": {
+            "search": "s",
+            "type": "type",
+            "year": "y",
+            "plot": "plot",
+            "page": "page"
+        }
+    },
+    "retries": 3
+}
