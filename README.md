@@ -11,7 +11,7 @@ npm install omdbapi
 
 #### Initialize
 ```js
-var omdb = require('omdbapi');
+const omdb = require('omdbapi');
 ```
 
 #### Example usage
@@ -21,9 +21,9 @@ omdb.search({
     type: 'series',             // optionnal  ['series', 'episode', 'movie']
     year: '2011',               // optionnal
     page: '1'                   // optionnal (1 to 100)
-}).then(function (res) {
+}).then(res => {
     console.log('got response:', res);
-}).catch(console.error.bind(console));
+}).catch(console.error);
 
 omdb.get({
     id: 'tt0944947',            // optionnal (requires imdbid or title)
@@ -34,16 +34,16 @@ omdb.get({
     plot: 'full',               // optionnal (defaults to 'short')
     tomatoes: true,             // optionnal (get rotten tomatoes ratings)
     year: '2011'                // optionnal
-}).then(function (res) {
+}).then(res => {
     console.log('got response:', res);
-}).catch(console.error.bind(console));
+}).catch(console.error);
 ```
 
 ## License
 
 The MIT License
 
-Copyright (c) 2016 - vankasteelj <vankasteelj@gmail.com>
+Copyright (c) 2016-2017 - vankasteelj <vankasteelj@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
