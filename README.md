@@ -11,7 +11,7 @@ npm install omdbapi
 
 #### Initialize
 ```js
-const omdb = require('omdbapi');
+const omdb = new (require('omdbapi'))('<your api key>');
 ```
 
 #### Example usage
@@ -43,7 +43,7 @@ omdb.get({
 
 The MIT License
 
-Copyright (c) 2016-2017 - vankasteelj <vankasteelj@gmail.com>
+Copyright (c) vankasteelj <vankasteelj@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

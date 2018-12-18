@@ -1,13 +1,15 @@
 'use strict';
 
-const utils = new (require('./utils.js'))();
+module.exports = class OMDB {
+    constructor(apiKey) {
+        this.utils = new (require('./utils.js'))(apiKey);
+    }
 
-module.exports = new class OMDB {
     search(opts) {
-        return utils.get(opts, 'search');
+        return this.utils.get(opts, 'search');
     }
 
     get(opts) {
-        return utils.get(opts, 'get');
+        return this.utils.get(opts, 'get');
     }
-}
+};

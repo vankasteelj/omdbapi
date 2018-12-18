@@ -1,8 +1,11 @@
 module.exports = class UTILS {
 
-    constructor() {
+    constructor(apiKey) {
+        if (!apiKey) throw new Error('No apiKey provided');
+
         this.config = require('./config.json');
         this.engine = require('got');
+        this.apiKey = apiKey;
     }
 
     build(opts, type) {
@@ -77,7 +80,7 @@ module.exports = class UTILS {
 
         count = isNaN(count) ? 1 : count;
 
-        return this.engine(this.config.url + this.build(opts, type), {
+        return this.engine(this.config.url + this.build(opts, type) + `&apikey=${this.apiKey}`, {
             json: true
         }).then(response => 
                 this[type+'Parse'](this.verify(response))
@@ -90,4 +93,4 @@ module.exports = class UTILS {
             }
         });
     }
-}
+};
