@@ -1,5 +1,5 @@
 {
-    "url": "http://www.omdbapi.com/?",
+    "url": "https://www.omdbapi.com/?",
     "map": {
         "get": {
             "id": "i",
