@@ -1,6 +1,6 @@
 {
     "name": "omdbapi",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "Omdbapi wrapper for NodeJS",
     "repository": {
         "type": "git",
@@ -14,6 +14,6 @@
         "api"
     ],
     "dependencies": {
-        "got": "11.8.6"
+        "got": "^9.5.0"
     }
 }
