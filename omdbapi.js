@@ -2,14 +2,14 @@
 
 module.exports = class OMDB {
   constructor(apiKey) {
-    this.utils = new (require('./utils.js'))(apiKey);
+    this.utils = new (require('./utils.js'))(apiKey)
   }
 
   search(opts) {
-    return this.utils.get(opts, 'search');
+    return this.utils.get(opts, 'search')
   }
 
   get(opts) {
-    return this.utils.get(opts, 'get');
+    return this.utils.get(opts, 'get')
   }
-};
+}
