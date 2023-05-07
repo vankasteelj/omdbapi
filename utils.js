@@ -42,14 +42,16 @@ module.exports = class UTILS {
   }
 
   verify(response) {
-    if (response.body.Error) {
-      throw new Error(response.body.Error)
+    const res = JSON.parse(response.body)
+    if (res.Error) {
+      throw new Error(res.Error)
     }
     return response
   }
 
   searchParse(response) {
-    const data = response.body.Search
+    response = JSON.parse(response.body)
+    const data = response.Search
     const res = {}
     for (let i in data) {
       res[i] = {}
@@ -61,7 +63,7 @@ module.exports = class UTILS {
   }
 
   getParse (response) {
-    const data = response.body
+    const data = JSON.parse(response.body)
     const res = {}
     for (let i in data) {
       if (['Actors', 'Genre', 'Writer', 'Director'].indexOf(i) !== -1) {
@@ -81,10 +83,10 @@ module.exports = class UTILS {
     count = isNaN(count) ? 1 : count
 
     return this.engine(this.config.url + this.build(opts, type) + `&apikey=${this.apiKey}`, {
-      json: true
-    }).then(response => 
-            this[type+'Parse'](this.verify(response))
-           ).catch(error => {
+      allowGetBody: true
+    }).then(response => {
+      return this[type+'Parse'](this.verify(response))
+    }).catch(error => {
       if (count < this.config.retries) {
         count++
         return this.get(opts, type, count)
