@@ -1,19 +1,19 @@
 {
-    "name": "omdbapi",
-    "version": "3.0.2",
-    "description": "Omdbapi wrapper for NodeJS",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/vankasteelj/omdbapi.git"
-    },
-    "main": "omdbapi.js",
-    "license": "MIT",
-    "keywords": [
-        "omdb",
-        "omdbapi",
-        "api"
-    ],
-    "dependencies": {
-        "got": "^9.5.0"
-    }
+  "name": "omdbapi",
+  "version": "3.0.2",
+  "description": "Omdbapi wrapper for NodeJS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vankasteelj/omdbapi.git"
+  },
+  "main": "omdbapi.js",
+  "license": "MIT",
+  "keywords": [
+    "omdb",
+    "omdbapi",
+    "api"
+  ],
+  "dependencies": {
+    "got": "^9.5.0"
+  }
 }
